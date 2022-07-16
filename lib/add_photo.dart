@@ -95,11 +95,12 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
                           if (image != null) {
                             setState(() {
                               pickedImages.add(File(image.path));
+                              print(pickedImages);
                             });
                           } else {
                             return;
                           }
-                          Get.back();
+                          // Get.back();
                         },
                         child: Container(
                           height: 166,
@@ -119,20 +120,31 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
                       ),
                       SizedBox(width: 20),
                       pickedImages.isNotEmpty
-                          ? SizedBox(
-                              height: 100,
-                              child: ListView.separated(
-                                shrinkWrap: true,
-                                itemCount: pickedImages.length,
-                                separatorBuilder: (ctx, i) =>
-                                    SizedBox(width: 10),
-                                itemBuilder: (ctx, i) {
-                                  return Container(
-                                    height: 100,
-                                    width: 100,
-                                    child: Image.file(pickedImages[i]),
-                                  );
-                                },
+                          ? Expanded(
+                              child: SizedBox(
+                                height: 166,
+                                child: ListView.separated(
+                                  shrinkWrap: true,
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: pickedImages.length,
+                                  separatorBuilder: (ctx, i) => const SizedBox(width: 9),
+                                  itemBuilder: (ctx, i) {
+                                    return Container(
+                                      height: 166,
+                                      width: 120,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20),
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(20),
+                                        child: Image.file(
+                                          pickedImages[i],
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
                               ),
                             )
                           : SizedBox(),
@@ -144,8 +156,7 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
             SizedBox(height: 40),
             Container(
               // height: ,
-              padding:
-                  EdgeInsets.only(left: 20, top: 25, right: 20, bottom: 10),
+              padding: EdgeInsets.only(left: 20, top: 25, right: 20, bottom: 10),
               width: double.infinity,
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
@@ -223,9 +234,7 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
                     decoration: InputDecoration(
                       hintText: 'Street Address',
                       hintStyle: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600),
+                          color: Colors.white, fontSize: 14, fontWeight: FontWeight.w600),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide.none),
@@ -238,9 +247,7 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
                     decoration: InputDecoration(
                       hintText: 'Phone No.',
                       hintStyle: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600),
+                          color: Colors.white, fontSize: 14, fontWeight: FontWeight.w600),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide.none),

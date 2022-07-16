@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:print/album.dart';
+import 'package:print/component.dart';
+
+Widget check(context) {
+  return Container(
+    child: Icon(
+      Icons.check_circle,
+      color: Colors.white,
+    ),
+  );
+}
 
 class SelectPhotos extends StatefulWidget {
   SelectPhotos({Key? key}) : super(key: key);
@@ -28,29 +38,32 @@ class _SelectPhotosState extends State<SelectPhotos> {
             style: TextStyle(fontWeight: FontWeight.w600),
           ),
           actions: [
-            Container(
-              margin: EdgeInsets.only(
-                right: 20,
-                top: 13,
-              ),
-              height: 42,
-              width: 42,
-              decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                  begin: Alignment(-0.362, 1.35),
-                  end: Alignment(0.362, -1.35),
-                  colors: [
-                    Color(0xffbb1271),
-                    Color(0xffd2146d),
-                    Color(0xffff7a51),
-                    Color(0xfffebb53)
-                  ],
+            GestureDetector(
+              onTap: () => Get.to(AlbumScreen()),
+              child: Container(
+                margin: EdgeInsets.only(
+                  right: 20,
+                  top: 13,
                 ),
-                borderRadius: BorderRadius.circular(22),
-              ),
-              child: const Icon(
-                Icons.check,
-                color: Colors.white,
+                height: 42,
+                width: 42,
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    begin: Alignment(-0.362, 1.35),
+                    end: Alignment(0.362, -1.35),
+                    colors: [
+                      Color(0xffbb1271),
+                      Color(0xffd2146d),
+                      Color(0xffff7a51),
+                      Color(0xfffebb53)
+                    ],
+                  ),
+                  borderRadius: BorderRadius.circular(22),
+                ),
+                child: const Icon(
+                  Icons.check,
+                  color: Colors.white,
+                ),
               ),
             )
           ],
@@ -74,58 +87,41 @@ class _SelectPhotosState extends State<SelectPhotos> {
                 SizedBox(height: 25),
                 Row(
                   children: [
-                    GestureDetector(
-                      onTap: () => Get.to(AlbumScreen()),
-                      child: Container(
-                        height: 160,
-                        padding: EdgeInsets.all(15),
-                        width: MediaQuery.of(context).size.width * 0.56,
-                        decoration: const BoxDecoration(
-                          color: Color(0xffEA465B),
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(2),
-                            topRight: Radius.circular(20),
-                            bottomRight: Radius.circular(2),
-                            bottomLeft: Radius.circular(20),
-                          ),
-                        ),
-                        child: const Align(
-                          alignment: Alignment.bottomRight,
-                          child: Text(
-                            'Picture\nOne',
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Color(0xffffffff),
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ),
+                    Photo1(
+                      text: 'Picture\nOne',
                     ),
                     SizedBox(width: 10),
-                    Container(
-                      height: 160,
-                      padding: EdgeInsets.all(15),
-                      width: MediaQuery.of(context).size.width * 0.3,
-                      decoration: const BoxDecoration(
-                        color: Color(0xffEA465B),
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(2),
-                          topRight: Radius.circular(20),
-                          bottomRight: Radius.circular(2),
-                          bottomLeft: Radius.circular(20),
-                        ),
-                      ),
-                      child: const Align(
-                        alignment: Alignment.bottomRight,
-                        child: Text(
-                          'Picture 2',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Color(0xffffffff),
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
+                    Photo2(
+                      text: 'Picture 2',
+                    ),
+                  ],
+                ),
+                SizedBox(height: 10),
+                Row(
+                  children: [
+                    Photo2(
+                      text: 'Picture 3',
+                    ),
+                    SizedBox(width: 10),
+                    Photo2(
+                      text: 'Picture 4',
+                    ),
+                    SizedBox(width: 10),
+                    Photo2(
+                      text: 'Picture 5',
+                    ),
+                  ],
+                ),
+                SizedBox(height: 10),
+                Row(
+                  children: [
+                    Photo2(
+                      text: 'Picture 6',
+                    ),
+                    SizedBox(width: 10),
+                    Expanded(
+                      child: Photo1(
+                        text: 'Picture 7',
                       ),
                     ),
                   ],
@@ -133,220 +129,16 @@ class _SelectPhotosState extends State<SelectPhotos> {
                 SizedBox(height: 10),
                 Row(
                   children: [
-                    Container(
-                      height: 160,
-                      padding: EdgeInsets.all(15),
-                      width: MediaQuery.of(context).size.width * 0.275,
-                      decoration: const BoxDecoration(
-                        color: Color(0xffEA465B),
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(2),
-                          topRight: Radius.circular(20),
-                          bottomRight: Radius.circular(2),
-                          bottomLeft: Radius.circular(20),
-                        ),
-                      ),
-                      child: const Align(
-                        alignment: Alignment.bottomRight,
-                        child: Text(
-                          'Picture 3',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Color(0xffffffff),
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
+                    Photo2(
+                      text: 'Picture 8',
                     ),
                     SizedBox(width: 10),
-                    Container(
-                      height: 160,
-                      padding: EdgeInsets.all(15),
-                      width: MediaQuery.of(context).size.width * 0.275,
-                      decoration: const BoxDecoration(
-                        color: Color(0xffEA465B),
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(2),
-                          topRight: Radius.circular(20),
-                          bottomRight: Radius.circular(2),
-                          bottomLeft: Radius.circular(20),
-                        ),
-                      ),
-                      child: const Align(
-                        alignment: Alignment.bottomRight,
-                        child: Text(
-                          'Picture 4',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Color(0xffffffff),
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
+                    Photo2(
+                      text: 'Picture 9',
                     ),
                     SizedBox(width: 10),
-                    Container(
-                      height: 160,
-                      padding: EdgeInsets.all(15),
-                      width: MediaQuery.of(context).size.width * 0.275,
-                      decoration: const BoxDecoration(
-                        color: Color(0xffEA465B),
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(2),
-                          topRight: Radius.circular(20),
-                          bottomRight: Radius.circular(2),
-                          bottomLeft: Radius.circular(20),
-                        ),
-                      ),
-                      child: const Align(
-                        alignment: Alignment.bottomRight,
-                        child: Text(
-                          'Picture 5',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Color(0xffffffff),
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10),
-                Row(
-                  children: [
-                    Container(
-                      height: 160,
-                      padding: EdgeInsets.all(15),
-                      width: MediaQuery.of(context).size.width * 0.3,
-                      decoration: const BoxDecoration(
-                        color: Color(0xffEA465B),
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(2),
-                          topRight: Radius.circular(20),
-                          bottomRight: Radius.circular(2),
-                          bottomLeft: Radius.circular(20),
-                        ),
-                      ),
-                      child: const Align(
-                        alignment: Alignment.bottomRight,
-                        child: Text(
-                          'Picture 6',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Color(0xffffffff),
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 10),
-                    Container(
-                      height: 160,
-                      padding: EdgeInsets.all(15),
-                      width: MediaQuery.of(context).size.width * 0.56,
-                      decoration: const BoxDecoration(
-                        color: Color(0xffEA465B),
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(2),
-                          topRight: Radius.circular(20),
-                          bottomRight: Radius.circular(2),
-                          bottomLeft: Radius.circular(20),
-                        ),
-                      ),
-                      child: const Align(
-                        alignment: Alignment.bottomRight,
-                        child: Text(
-                          'Picture 7',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Color(0xffffffff),
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10),
-                Row(
-                  children: [
-                    Container(
-                      height: 160,
-                      padding: EdgeInsets.all(15),
-                      width: MediaQuery.of(context).size.width * 0.275,
-                      decoration: const BoxDecoration(
-                        color: Color(0xffEA465B),
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(2),
-                          topRight: Radius.circular(20),
-                          bottomRight: Radius.circular(2),
-                          bottomLeft: Radius.circular(20),
-                        ),
-                      ),
-                      child: const Align(
-                        alignment: Alignment.bottomRight,
-                        child: Text(
-                          'Picture 8',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Color(0xffffffff),
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 10),
-                    Container(
-                      height: 160,
-                      padding: EdgeInsets.all(15),
-                      width: MediaQuery.of(context).size.width * 0.275,
-                      decoration: const BoxDecoration(
-                        color: Color(0xffEA465B),
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(2),
-                          topRight: Radius.circular(20),
-                          bottomRight: Radius.circular(2),
-                          bottomLeft: Radius.circular(20),
-                        ),
-                      ),
-                      child: const Align(
-                        alignment: Alignment.bottomRight,
-                        child: Text(
-                          'Picture 9',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Color(0xffffffff),
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 10),
-                    Container(
-                      height: 160,
-                      padding: EdgeInsets.all(15),
-                      width: MediaQuery.of(context).size.width * 0.275,
-                      decoration: const BoxDecoration(
-                        color: Color(0xffEA465B),
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(2),
-                          topRight: Radius.circular(20),
-                          bottomRight: Radius.circular(2),
-                          bottomLeft: Radius.circular(20),
-                        ),
-                      ),
-                      child: const Align(
-                        alignment: Alignment.bottomRight,
-                        child: Text(
-                          'Picture 10',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Color(0xffffffff),
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
+                    Photo2(
+                      text: 'Picture 10',
                     ),
                   ],
                 ),
