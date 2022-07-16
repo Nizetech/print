@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:print/select_photo.dart';
 
 class AddPhotoScreen extends StatefulWidget {
@@ -10,6 +13,8 @@ class AddPhotoScreen extends StatefulWidget {
 }
 
 class _AddPhotoScreenState extends State<AddPhotoScreen> {
+  // late XFile imageFile;
+  List<File> pickedImages = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,29 +33,32 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
           style: TextStyle(fontWeight: FontWeight.w600),
         ),
         actions: [
-          Container(
-            margin: EdgeInsets.only(
-              right: 20,
-              top: 13,
-            ),
-            height: 42,
-            width: 42,
-            decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                begin: Alignment(-0.362, 1.35),
-                end: Alignment(0.362, -1.35),
-                colors: [
-                  Color(0xffbb1271),
-                  Color(0xffd2146d),
-                  Color(0xffff7a51),
-                  Color(0xfffebb53)
-                ],
+          GestureDetector(
+            onTap: () => Get.to(SelectPhotos()),
+            child: Container(
+              margin: EdgeInsets.only(
+                right: 20,
+                top: 13,
               ),
-              borderRadius: BorderRadius.circular(22),
-            ),
-            child: const Icon(
-              Icons.check,
-              color: Colors.white,
+              height: 42,
+              width: 42,
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                  begin: Alignment(-0.362, 1.35),
+                  end: Alignment(0.362, -1.35),
+                  colors: [
+                    Color(0xffbb1271),
+                    Color(0xffd2146d),
+                    Color(0xffff7a51),
+                    Color(0xfffebb53)
+                  ],
+                ),
+                borderRadius: BorderRadius.circular(22),
+              ),
+              child: const Icon(
+                Icons.check,
+                color: Colors.white,
+              ),
             ),
           )
         ],
@@ -74,23 +82,61 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: 25),
-                  GestureDetector(
-                    onTap: () => Get.to(SelectPhotos()),
-                    child: Container(
-                      height: 166,
-                      width: 120,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.white.withOpacity(.2),
-                      ),
-                      child: const Center(
-                        child: Icon(
-                          Icons.add_photo_alternate_outlined,
-                          color: Color(0xffEA465B),
-                          size: 35,
+                  Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () async {
+                          XFile? image = await ImagePicker().pickImage(
+                            source: ImageSource.gallery,
+                            maxWidth: 200,
+                            maxHeight: 200,
+                            imageQuality: 50,
+                          );
+                          if (image != null) {
+                            setState(() {
+                              pickedImages.add(File(image.path));
+                            });
+                          } else {
+                            return;
+                          }
+                          Get.back();
+                        },
+                        child: Container(
+                          height: 166,
+                          width: 120,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.white.withOpacity(.2),
+                          ),
+                          child: const Center(
+                            child: Icon(
+                              Icons.add_photo_alternate_outlined,
+                              color: Color(0xffEA465B),
+                              size: 35,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
+                      SizedBox(width: 20),
+                      pickedImages.isNotEmpty
+                          ? SizedBox(
+                              height: 100,
+                              child: ListView.separated(
+                                shrinkWrap: true,
+                                itemCount: pickedImages.length,
+                                separatorBuilder: (ctx, i) =>
+                                    SizedBox(width: 10),
+                                itemBuilder: (ctx, i) {
+                                  return Container(
+                                    height: 100,
+                                    width: 100,
+                                    child: Image.file(pickedImages[i]),
+                                  );
+                                },
+                              ),
+                            )
+                          : SizedBox(),
+                    ],
                   ),
                 ],
               ),

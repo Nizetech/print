@@ -173,7 +173,7 @@ class _AlbumScreenState extends State<AlbumScreen> {
                     color: Colors.white.withOpacity(.5),
                   ),
                   SizedBox(height: 16),
-                  Text(
+                  const Text(
                     'Nullam tellus libero, tincidunt ut ipsum in, aliquet dictum dolor. Sed interdum lacinia urna non euismod.  ',
                     style: TextStyle(
                       fontSize: 14,
