@@ -22,13 +22,13 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
         backgroundColor: Colors.black,
         leading: IconButton(
             onPressed: () => Get.back(),
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_back_sharp,
               color: Color(0xffEA465B),
             )),
         elevation: 0,
         centerTitle: true,
-        title: Text(
+        title: const Text(
           "profile info",
           style: TextStyle(fontWeight: FontWeight.w600),
         ),
@@ -36,7 +36,7 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
           GestureDetector(
             onTap: () => Get.to(SelectPhotos()),
             child: Container(
-              margin: EdgeInsets.only(
+              margin: const EdgeInsets.only(
                 right: 20,
                 top: 13,
               ),
@@ -174,7 +174,7 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Delivery Info',
                     style: TextStyle(
                       fontSize: 30,
@@ -190,7 +190,7 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
                         child: TextField(
                           decoration: InputDecoration(
                             hintText: 'Full Name',
-                            hintStyle: TextStyle(
+                            hintStyle: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600),
@@ -213,7 +213,7 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
+                            children: const [
                               Text(
                                 'Mr.',
                                 style: TextStyle(
@@ -233,7 +233,7 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
                     maxLines: 3,
                     decoration: InputDecoration(
                       hintText: 'Street Address',
-                      hintStyle: TextStyle(
+                      hintStyle: const TextStyle(
                           color: Colors.white, fontSize: 14, fontWeight: FontWeight.w600),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -246,7 +246,7 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
                   TextField(
                     decoration: InputDecoration(
                       hintText: 'Phone No.',
-                      hintStyle: TextStyle(
+                      hintStyle: const TextStyle(
                           color: Colors.white, fontSize: 14, fontWeight: FontWeight.w600),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),

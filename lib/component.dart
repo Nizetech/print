@@ -39,7 +39,7 @@ class _Photo1State extends State<Photo1> {
             Spacer(),
             Text(
               widget.text,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 color: Color(0xffffffff),
                 fontWeight: FontWeight.w600,
@@ -90,7 +90,7 @@ class _Photo2State extends State<Photo2> {
             Spacer(),
             Text(
               widget.text,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 color: Color(0xffffffff),
                 fontWeight: FontWeight.w600,

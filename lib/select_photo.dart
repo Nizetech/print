@@ -27,13 +27,13 @@ class _SelectPhotosState extends State<SelectPhotos> {
           backgroundColor: Colors.black,
           leading: IconButton(
               onPressed: () => Get.back(),
-              icon: Icon(
+              icon: const Icon(
                 Icons.arrow_back_sharp,
                 color: Color(0xffEA465B),
               )),
           elevation: 0,
           centerTitle: true,
-          title: Text(
+          title: const Text(
             "Finalize",
             style: TextStyle(fontWeight: FontWeight.w600),
           ),
@@ -41,7 +41,7 @@ class _SelectPhotosState extends State<SelectPhotos> {
             GestureDetector(
               onTap: () => Get.to(AlbumScreen()),
               child: Container(
-                margin: EdgeInsets.only(
+                margin: const EdgeInsets.only(
                   right: 20,
                   top: 13,
                 ),

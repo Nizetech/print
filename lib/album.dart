@@ -16,14 +16,13 @@ class _AlbumScreenState extends State<AlbumScreen> {
       child: Scaffold(
         body: Container(
           width: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/Group 1.png'),
               fit: BoxFit.cover,
             ),
           ),
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             SizedBox(height: 40),
             Container(
                 margin: EdgeInsets.only(left: 20, top: 15, bottom: 5),
@@ -36,7 +35,7 @@ class _AlbumScreenState extends State<AlbumScreen> {
                 ),
                 child: IconButton(
                     onPressed: () => Get.back(),
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.arrow_back_sharp,
                       color: Color(0xffEA465B),
                     ))),
@@ -46,8 +45,7 @@ class _AlbumScreenState extends State<AlbumScreen> {
                 height: 20,
                 width: 70,
                 decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(20)),
+                    color: Colors.white, borderRadius: BorderRadius.circular(20)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -55,8 +53,7 @@ class _AlbumScreenState extends State<AlbumScreen> {
                       height: 8,
                       width: 8,
                       decoration: BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.circular(20)),
+                          color: Colors.black, borderRadius: BorderRadius.circular(20)),
                     ),
                     Container(
                       height: 8,
@@ -132,7 +129,7 @@ class _AlbumScreenState extends State<AlbumScreen> {
                           ),
                           child: IconButton(
                               onPressed: () => Get.back(),
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.arrow_forward,
                                 color: Color(0xffEA465B),
                               ))),
@@ -157,7 +154,7 @@ class _AlbumScreenState extends State<AlbumScreen> {
                           color: Colors.white.withOpacity(.5),
                         ),
                       ),
-                      Text(
+                      const Text(
                         '   339 Orders    ',
                         style: TextStyle(
                           fontSize: 14,
@@ -226,19 +223,19 @@ class _AlbumScreenState extends State<AlbumScreen> {
               // padding: EdgeInsets.symmetric(vertical: 10),
               decoration: BoxDecoration(
                 color: Colors.white.withOpacity(.08),
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(2),
                     topRight: Radius.circular(20),
                     bottomLeft: Radius.circular(20),
                     bottomRight: Radius.circular(2)),
               ),
               child: TabBar(
-                  labelStyle: TextStyle(
+                  labelStyle: const TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w600,
                   ),
                   indicator: BoxDecoration(
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(2),
                         topRight: Radius.circular(20),
                         bottomLeft: Radius.circular(20),
@@ -249,18 +246,15 @@ class _AlbumScreenState extends State<AlbumScreen> {
                   indicatorColor: Colors.transparent,
                   tabs: [
                     Tab(
-                      icon:
-                          Image.asset('assets/menu.png', height: 17, width: 20),
+                      icon: Image.asset('assets/menu.png', height: 17, width: 20),
                       text: 'Albums',
                     ),
                     Tab(
-                      icon: Image.asset('assets/frame.png',
-                          height: 20, width: 26),
+                      icon: Image.asset('assets/frame.png', height: 20, width: 26),
                       text: 'Frame',
                     ),
                     Tab(
-                      icon: Image.asset('assets/photo.png',
-                          height: 17, width: 30),
+                      icon: Image.asset('assets/photo.png', height: 17, width: 30),
                       text: 'Only Photos',
                     ),
                   ]),
