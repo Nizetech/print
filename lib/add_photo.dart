@@ -187,6 +187,7 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
                   Row(
                     children: [
                       Expanded(
+                        flex: 7,
                         child: TextField(
                           decoration: InputDecoration(
                             hintText: 'Full Name',
@@ -203,29 +204,64 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
                         ),
                       ),
                       SizedBox(width: 15),
-                      Container(
-                          height: 52,
-                          width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 20),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Colors.white.withOpacity(0.5),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: const [
-                              Text(
-                                'Mr.',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                      Expanded(
+                        flex: 3,
+                        child: DropdownButtonFormField(
+                          items: [
+                            DropdownMenuItem(
+                              child: Text(
+                                'Mr',
                               ),
-                              Icon(Icons.keyboard_arrow_down_rounded,
-                                  color: Colors.white),
-                            ],
-                          )),
+                              value: 'Mr',
+                            ),
+                            DropdownMenuItem(
+                              child: Text(
+                                'Mrs',
+                              ),
+                              value: 'Mrs',
+                            ),
+                          ],
+                          iconEnabledColor: Colors.white,
+                          onChanged: (val) {},
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          dropdownColor: Colors.black,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide.none),
+                            filled: true,
+                            fillColor: Colors.white.withOpacity(0.5),
+                            isDense: true,
+                          ),
+                        ),
+                      ),
+                      // Container(
+                      //     height: 52,
+                      //     width: 100,
+                      //     padding: EdgeInsets.symmetric(horizontal: 20),
+                      //     decoration: BoxDecoration(
+                      //       borderRadius: BorderRadius.circular(10),
+                      //       color: Colors.white.withOpacity(0.5),
+                      //     ),
+                      //     child: Row(
+                      //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //       children: const [
+                      //         Text(
+                      //           'Mr.',
+                      //           style: TextStyle(
+                      //             color: Colors.white,
+                      //             fontSize: 14,
+                      //             fontWeight: FontWeight.w600,
+                      //           ),
+                      //         ),
+                      //         Icon(Icons.keyboard_arrow_down_rounded,
+                      //             color: Colors.white),
+                      //       ],
+                      //     )),
                     ],
                   ),
                   SizedBox(height: 10),
